@@ -1,0 +1,62 @@
+﻿@page "{id:min(1)}"
+@model InfoFlixProject.Pages.Movies.UpdateMovieModel
+@{
+    ViewData["Title"] = "Update Movie";
+}
+
+<h2>Edit Movie</h2>
+
+
+<hr />
+<br />
+
+<form method="post">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+    <div class="form-row">
+        <input type="hidden" asp-for="Movie.Id" />
+        <div class="form-group col-md-6">
+            <label class="font-weight-bold" asp-for="Movie.Title"></label>
+            <input asp-for="Movie.Title" class="form-control">
+            <span asp-validation-for="Movie.Title" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label class="font-weight-bold" asp-for="Movie.Synopsis"></label>
+            <textarea class="form-control" asp-for="Movie.Synopsis" rows="5"></textarea>
+            <span asp-validation-for="Movie.Synopsis" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Movie.ReleaseDate"></label>
+        <input asp-for="Movie.ReleaseDate" class="form-control">
+        <span asp-validation-for="Movie.ReleaseDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Movie.AgeRating"></label>
+        <input asp-for="Movie.AgeRating" class="form-control">
+        <span asp-validation-for="Movie.AgeRating" class="text-danger"></span>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label class="font-weight-bold" asp-for="Movie.TrailerUrl"></label>
+            <input asp-for="Movie.TrailerUrl" class="form-control">
+            <span asp-validation-for="Movie.TrailerUrl" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label class="font-weight-bold" asp-for="Movie.ImageUrl"></label>
+            <input asp-for="Movie.ImageUrl" class="form-control">
+            <span asp-validation-for="Movie.ImageUrl" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-3 offset-3">
+            <input type="submit" value="Update" class="btn btn-info form-control" />
+        </div>
+        <div class="col-3">
+            <a asp-page="/Movies/Index" class="btn btn-dark form-control">Back to Movie List</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

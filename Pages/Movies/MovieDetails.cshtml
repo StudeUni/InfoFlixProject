@@ -1,0 +1,23 @@
+﻿@page "{id:min(1)}"
+@model InfoFlixProject.Pages.Movies.MovieDetailsModel
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<div class="container">
+    <h1 class="text-center">@Model.Movie.Title</h1>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <img style='float:left;width:425px;height:563px; margin-right:10px;' src="@Model.Movie.ImageUrl" />
+            <br /><br /><br />
+            <label asp-for="Movie.Synopsis" class="font-weight-bold"></label>
+            <p>@Model.Movie.Synopsis</p>
+            <label asp-for="Movie.ReleaseDate" class="font-weight-bold"></label>
+            <p class="card-text">@Model.Movie.ReleaseDate</p>
+            <label class="font-weight-bold" asp-for="Movie.AgeRating"></label>
+            <p>@Model.Movie.AgeRating</p>
+            <center><a class="fa fa-play" href="@Model.Movie.TrailerUrl" style="font-size:48px;color:cadetblue" target="_blank"></a></center>
+        </div>
+    </div>
+</div>

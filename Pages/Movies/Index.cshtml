@@ -1,0 +1,37 @@
+﻿@page
+@model InfoFlixProject.Pages.Movies.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<form class="form-inline md-form mr-auto mb-4 justify-content-center" method="get">
+    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" asp-for="SearchString">
+    <button class="btn btn-info btn-rounded btn-sm my-0" type="submit">🔎</button>
+</form>
+
+
+<div class="card-deck">
+    @foreach (var movie in Model.MovieList)
+    {
+        <div class="card m-3" style="min-width: 18rem; max-width:30.5%">
+            <a asp-page="/Movies/MovieDetails" asp-route-ID="@movie.Id">
+                <img class="card-img-top" src="@Html.DisplayFor(m => movie.ImageUrl)" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title text-center">@Html.DisplayFor(m => movie.Title)</h5>
+                <p class="over">@Html.DisplayFor(m => movie.Synopsis)</p>
+                <center><p class="card-text"><label class="font-weight-bold" asp-for="MovieList.FirstOrDefault().ReleaseDate"></label> @Html.DisplayFor(m => movie.ReleaseDate)</p></center>
+                <center><p class="card-text"><label class="font-weight-bold" asp-for="MovieList.FirstOrDefault().AgeRating"></label> @Html.DisplayFor(m => movie.AgeRating)</p></center>
+                <center><a class="fa fa-play" href="@Html.DisplayFor(m => movie.TrailerUrl)" style="font-size:48px;color:cadetblue" target="_blank"></a></center>
+                <br />
+                <center>
+                    <div class="btn-group">
+                        <a asp-page="/Movies/UpdateMovie" asp-route-ID="@movie.Id" class="btn btn-outline-dark justify-content-center">✐Edit</a>
+                        <a asp-page="/Movies/DeleteMovie" asp-route-ID="@movie.Id" class="btn btn-outline-danger btn-sm">🗑Delete</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+
+    }
+</div>
