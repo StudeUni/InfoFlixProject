@@ -33,12 +33,18 @@ namespace InfoFlixProject
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDbContext<Models.MovieDbContext>(options =>
+    options.UseSqlServer(
+        Configuration.GetConnectionString("MovieConnection")));
+
             services.AddRazorPages();
             services.AddMvc().AddRazorPagesOptions(options =>
             {
                 options.Conventions.AddPageRoute("/Movies/Index", "");
                 options.Conventions.AuthorizePage("/Movies/Index");
             });
+
             services.AddSingleton<IMovieRepository, MockMovieRepository>();
         }
 
