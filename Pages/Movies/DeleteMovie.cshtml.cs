@@ -19,6 +19,7 @@ namespace InfoFlixProject.Pages.Movies
 
         [BindProperty]
         public Movie Movie { get; set; }
+
         public IActionResult OnGet(int id)
         {
             Movie = _context.GetMovie(id);

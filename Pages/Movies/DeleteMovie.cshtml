@@ -26,7 +26,7 @@
             </a>
             <div class="card-body">
                 <h5 class="card-title text-center">@Model.Movie.Title</h5>
-                <center><p class="card-text font-weight-bold">@Model.Movie.ReleaseDate</p></center>
+                <center><p class="card-text font-weight-bold">@Model.Movie.ReleaseDate.ToShortDateString()</p></center>
                 <br />
             </div>
         </div>

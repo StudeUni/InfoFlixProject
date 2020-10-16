@@ -12,5 +12,7 @@ namespace InfoFlixProject.Data
             : base(options)
         {
         }
+
+
     }
 }

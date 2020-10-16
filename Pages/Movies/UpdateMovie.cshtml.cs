@@ -31,9 +31,9 @@ namespace InfoFlixProject.Pages.Movies
             return Page();
         }
 
-        public IActionResult OnPost(Movie Movie)
+        public IActionResult OnPost(Movie movie)
         {
-            Movie = _context.UpdateMovie(Movie);
+            Movie = _context.UpdateMovie(movie);
 
             if(ModelState.IsValid)
             {

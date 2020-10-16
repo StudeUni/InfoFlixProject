@@ -45,7 +45,7 @@ namespace InfoFlixProject
                 options.Conventions.AuthorizePage("/Movies/Index");
             });
 
-            services.AddSingleton<IMovieRepository, MockMovieRepository>();
+            services.AddScoped<IMovieRepository, SqlMovieRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
